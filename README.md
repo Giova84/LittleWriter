@@ -2,6 +2,11 @@
 Little Writer is a rich text editor for Haiku. Based on TextEdit demo by Digia.
 http://doc.qt.io/qt-4.8/qt-demos-textedit-example.html
 
+how to build:
+
+ - setarch x86
+ - make
+
 History:
 
 Version 1.0
