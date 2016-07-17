@@ -1,0 +1,28 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+  <file>images/haiku/bgfill.png</file>
+  <file>images/haiku/editcopy.png</file>
+  <file>images/haiku/editcut.png</file>
+  <file>images/haiku/editpaste.png</file>
+  <file>images/haiku/editredo.png</file>
+  <file>images/haiku/editundo.png</file>
+  <file>images/haiku/exportpdf.png</file>
+  <file>images/haiku/filenew.png</file>
+  <file>images/haiku/fileopen.png</file>
+  <file>images/haiku/fileprint.png</file>
+  <file>images/haiku/filesave.png</file>
+  <file>images/haiku/image.png</file>
+  <file>images/haiku/textbold.png</file>
+  <file>images/haiku/textcenter.png</file>
+  <file>images/haiku/textcolor.png</file>
+  <file>images/haiku/texthighlight.png</file>
+  <file>images/haiku/textitalic.png</file>
+  <file>images/haiku/textjustify.png</file>
+  <file>images/haiku/textleft.png</file>
+  <file>images/haiku/textright.png</file>
+  <file>images/haiku/textunder.png</file>
+  <file>images/haiku/WordWriter.png</file>
+  <file>images/haiku/zoomin.png</file>
+  <file>images/haiku/zoomout.png</file>
+</qresource>
+</RCC>
