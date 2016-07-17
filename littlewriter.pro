@@ -1,5 +1,5 @@
 TEMPLATE        = app
-TARGET          = Little Writer
+TARGET          = LittleWriter
 
 CONFIG          += qt warn_on
 
