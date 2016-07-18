@@ -185,10 +185,16 @@ void TextEdit::setupFileActions()
     a->setEnabled(false);
     tb->addAction(a);
     menu->addAction(a);
+    menu->addSeparator();
 
-    a = new QAction(tr("Save &As..."), this);
+    a = new QAction(tr("Save &As ODT..."), this);
     a->setPriority(QAction::LowPriority);
-    connect(a, SIGNAL(triggered()), this, SLOT(fileSaveAs()));
+    connect(a, SIGNAL(triggered()), this, SLOT(fileSaveAsOdt()));
+    menu->addAction(a);
+    
+    a = new QAction(tr("Save &As HTML..."), this);
+    a->setPriority(QAction::LowPriority);
+    connect(a, SIGNAL(triggered()), this, SLOT(fileSaveAsHtml()));
     menu->addAction(a);
     menu->addSeparator();
 
@@ -500,8 +506,8 @@ void TextEdit::fileOpen()
 
 bool TextEdit::fileSave()
 {
-    if (fileName.isEmpty())
-        return fileSaveAs();
+    //if (fileName.isEmpty())
+    //    return fileSaveAs();
 
     QTextDocumentWriter writer(fileName);
     bool success = writer.write(textEdit->document());
@@ -510,18 +516,37 @@ bool TextEdit::fileSave()
     return success;
 }
 
-bool TextEdit::fileSaveAs()
+// Save as ODT
+bool TextEdit::fileSaveAsOdt()
 {
-    QString fn = QFileDialog::getSaveFileName(this, tr("Save as..."),
-                                              QString(), tr("ODF files (*.odt);;HTML-Files (*.htm *.html);;All Files (*)"));
+    QString fn = QFileDialog::getSaveFileName(this, tr("Save as ODT"),
+                                             "/boot/home/Desktop/Untitled",    
+                                             /* tr("ODF document (*.odt)"), 0, QFileDialog::DontUseNativeDialog ); */ // QT file dialog
+                                             tr("ODF document (*.odt)")); // Native file dialog
+
     if (fn.isEmpty())
         return false;
-    if (! fn.endsWith(".txt", Qt::CaseInsensitive) || (fn.endsWith(".odt", Qt::CaseInsensitive) || fn.endsWith(".htm", Qt::CaseInsensitive) || fn.endsWith(".html", Qt::CaseInsensitive)) )
-        fn += ".html"; // default
+    /* if (! fn.endsWith(".txt", Qt::CaseInsensitive) || (fn.endsWith(".odt", Qt::CaseInsensitive) || fn.endsWith(".htm", Qt::CaseInsensitive) || fn.endsWith(".html", Qt::CaseInsensitive)) ) */
+        fn += ".odt"; // set the extension
     setCurrentFileName(fn);
     return fileSave();
 }
 
+// Save as HTML
+bool TextEdit::fileSaveAsHtml()
+{
+	QString fn = QFileDialog::getSaveFileName(this, tr("Save as HTML"),
+                                             "/boot/home/Desktop/Untitled",    
+                                             /* tr("HTML document (*.html)"), 0, QFileDialog::DontUseNativeDialog ); */ // QT file dialog
+                                             tr("HTML document (*.html)")); // Native file dialog
+
+    if (fn.isEmpty())
+        return false;
+    /* if (! fn.endsWith(".txt", Qt::CaseInsensitive) || (fn.endsWith(".odt", Qt::CaseInsensitive) || fn.endsWith(".htm", Qt::CaseInsensitive) || fn.endsWith(".html", Qt::CaseInsensitive)) ) */
+        fn += ".html"; // set the extension
+    setCurrentFileName(fn);
+    return fileSave();
+}
 
 //void TextEdit::filePrint()
 //{
