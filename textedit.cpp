@@ -803,7 +803,7 @@ void TextEdit::clipboardDataChanged()
 void TextEdit::about()
 {
 	setWindowIcon( QIcon(rsrcPath + "/WordWriter.png"));
-    QMessageBox::about(this, tr("About This App"), tr("\n<b>Little Writer</b> is a rich text editor for Haiku.<br><br>Based on TextEdit demo by Digia\xA9:<br> http://doc.qt.io/qt-4.8/qt-demos-textedit-example.html"));
+    QMessageBox::about(this, tr("About This App"), tr("\n<b>Little Writer</b> is a rich text editor for Haiku.<br><br>https://github.com/Giova84/LittleWriter"));
 
 //setWindowIcon( QIcon(rsrcPath + "/WordWriter.png"));
 
