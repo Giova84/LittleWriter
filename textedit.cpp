@@ -855,7 +855,7 @@ void TextEdit::alignmentChanged(Qt::Alignment a)
 void TextEdit::insertImage()
 {
     QString fn = QFileDialog::getOpenFileName(this, tr("Select File..."),
-                                              QString(), tr("Image-Files (*.png *.jpg);;All Files (*)"));
+                                              QString(), tr("Image-Files (*.png *.jpg *.gif)"));
     if (!fn.isEmpty())
     {
         textEdit->insertHtml("<img src=\"" + fn + "\"");
