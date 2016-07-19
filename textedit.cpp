@@ -869,6 +869,6 @@ void TextEdit::insertUrl()
    
    if (!baseUrl.isEmpty())
     {
-        textEdit->insertHtml("<a href=\"" + baseUrl + "\">" + baseUrl + "</a>");
+        textEdit->insertHtml("<a href=\"" + baseUrl + "\">" + baseUrl + "</a><p> </p>");
     }
 }
