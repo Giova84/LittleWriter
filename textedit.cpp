@@ -516,8 +516,9 @@ void TextEdit::fileOpen()
 
 bool TextEdit::fileSave()
 {
-    //if (fileName.isEmpty())
-    //    return fileSaveAs();
+    if (fileName.isEmpty())
+        // set "Save as Html" as fallback, since currently we are unable to open ODT files
+        return fileSaveAsHtml();
 
     QTextDocumentWriter writer(fileName);
     bool success = writer.write(textEdit->document());
