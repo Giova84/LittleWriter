@@ -49,6 +49,7 @@
 #include <QFontComboBox>
 #include <QFile>
 #include <QFileDialog>
+#include <QInputDialog>
 #include <QFileInfo>
 #include <QFontDatabase>
 #include <QMenu>
@@ -273,10 +274,19 @@ void TextEdit::setupEditActions()
     a = actionInsertimage = new QAction(QIcon::fromTheme("edit-insertImage", QIcon(rsrcPath + "/image.png")),
                                   tr("&Insert Image"), this);
     a->setPriority(QAction::LowPriority);
-//    a->setShortcut(QKeySequence::Paste);
+//  a->setShortcut(QKeySequence::Paste);
     connect(a, SIGNAL(triggered()), this, SLOT(insertImage()));
     tb->addAction(a);
     menu->addAction(a);
+    
+    a = actionInsertUrl = new QAction(QIcon::fromTheme("edit-insertUrl", QIcon(rsrcPath + "/link.png")),
+                                  tr("&Insert Hyperlink"), this);
+    a->setPriority(QAction::LowPriority);
+//  a->setShortcut(QKeySequence::Paste);
+    connect(a, SIGNAL(triggered()), this, SLOT(insertUrl()));
+    tb->addAction(a);
+    menu->addAction(a);
+
 #ifndef QT_NO_CLIPBOARD
     if (const QMimeData *md = QApplication::clipboard()->mimeData())
         actionPaste->setEnabled(md->hasText());
@@ -848,5 +858,16 @@ void TextEdit::insertImage()
     if (!fn.isEmpty())
     {
         textEdit->insertHtml("<img src=\"" + fn + "\"");
+    }
+}
+
+
+void TextEdit::insertUrl()
+{
+    QString baseUrl = QInputDialog::getText(this, tr("URL"),tr("Link:"), QLineEdit::Normal, "");
+   
+   if (!baseUrl.isEmpty())
+    {
+        textEdit->insertHtml("<a href=\"" + baseUrl + "\">" + baseUrl + "</a>");
     }
 }

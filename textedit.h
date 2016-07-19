@@ -106,6 +106,7 @@ private slots:
     //void printPreview(QPrinter *);
 
     void insertImage();
+    void insertUrl();
 
 private:
     void mergeFormatOnWordOrSelection(const QTextCharFormat &format);
@@ -129,7 +130,8 @@ private:
         *actionCut,
         *actionCopy,
         *actionPaste,
-        *actionInsertimage;
+        *actionInsertimage,
+        *actionInsertUrl;
 
     QComboBox *comboStyle;
     QFontComboBox *comboFont;

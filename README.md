@@ -16,6 +16,9 @@ How to build:
 
 History:
 
+Version 1.2
+- Added the ability to insert hyperlinks into the document.
+
 Version 1.1
 - Now, from the "File" menu, is possible to choose if to save the document as HTML or as ODT.
 
